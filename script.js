@@ -1,7 +1,8 @@
 const input = document.getElementById('texto-tarefa');
 const ol = document.getElementById('lista-tarefas'); 
 const button = document.getElementById('criar-tarefa');
-const li = document.querySelectorAll('li');
+const li = document.getElementsByClassName('lista');
+const clean = document.getElementById('apaga-tudo');
 
 window.onload = () => {
     atualizarTela();
@@ -14,7 +15,7 @@ const setBanco = (banco) => localStorage.setItem('todolist', JSON.stringify(banc
 const createLI = () => {
     const li = document.createElement('li');
     li.innerText = input.value;
-    // li.className = "item-lista";
+    li.className = 'lista';
     banco.push(li.innerText);
     ol.appendChild(li); 
     input.value = "";
@@ -27,7 +28,7 @@ const atualizarTela = () => {
     get.map((item) => {
         const li = document.createElement('li');
         li.innerText = item;
-        // li.className = "item-lista";
+        li.className = 'lista';
         banco.push(li.innerText);
         ol.appendChild(li);
     })
@@ -38,10 +39,16 @@ const changeBack = (event) => {
     const click = event.target;
     click.style.background = "gray";
 }
-ol.addEventListener('click', changeBack) 
+ol.addEventListener('click', changeBack);
 
 const complete = (event) => {
     const dblclick = event.target;
     const duplo = dblclick.className !== 'completed' ?  dblclick.className = 'completed' : dblclick.className = '';
 }
-ol.addEventListener('dblclick', complete) 
+ol.addEventListener('dblclick', complete); 
+
+const cleanLi = () => {
+    document.querySelectorAll('li').forEach((e) => ol.removeChild(e))
+    localStorage.removeItem('todolist')
+}
+clean.addEventListener('click', cleanLi);
