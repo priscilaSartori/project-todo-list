@@ -3,13 +3,14 @@ const ol = document.getElementById('lista-tarefas');
 const button = document.getElementById('criar-tarefa');
 const li = document.getElementsByClassName('lista');
 const clean = document.getElementById('apaga-tudo');
+const removeCompletos = document.getElementById('remover-finalizados');
 
 window.onload = () => {
     atualizarTela();
 }
 
 let banco = [];
-const getBanco= () => JSON.parse(localStorage.getItem('todolist')) ?? [];
+const getBanco = () => JSON.parse(localStorage.getItem('todolist')) ?? [];
 const setBanco = (banco) => localStorage.setItem('todolist', JSON.stringify(banco));
 
 const createLI = () => {
@@ -52,3 +53,13 @@ const cleanLi = () => {
     localStorage.removeItem('todolist')
 }
 clean.addEventListener('click', cleanLi);
+
+const removerCompletos = (event) => {
+    document.querySelectorAll('li').forEach((e) => {
+    if (e.className === 'completed') {
+        ol.removeChild(e);
+        banco.splice(banco.indexOf(e), 1);
+        setBanco(banco);
+    }})
+}
+removeCompletos.addEventListener('click', removerCompletos);
