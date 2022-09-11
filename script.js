@@ -14,7 +14,7 @@ const setBanco = (banco) => localStorage.setItem('todolist', JSON.stringify(banc
 const createLI = () => {
     const li = document.createElement('li');
     li.innerText = input.value;
-    li.className = "item-lista";
+    // li.className = "item-lista";
     banco.push(li.innerText);
     ol.appendChild(li); 
     input.value = "";
@@ -27,7 +27,7 @@ const atualizarTela = () => {
     get.map((item) => {
         const li = document.createElement('li');
         li.innerText = item;
-        li.className = "item-lista";
+        // li.className = "item-lista";
         banco.push(li.innerText);
         ol.appendChild(li);
     })
@@ -39,3 +39,9 @@ const changeBack = (event) => {
     click.style.background = "gray";
 }
 ol.addEventListener('click', changeBack) 
+
+const complete = (event) => {
+    const dblclick = event.target;
+    const duplo = dblclick.className !== 'completed' ?  dblclick.className = 'completed' : dblclick.className = '';
+}
+ol.addEventListener('dblclick', complete) 
