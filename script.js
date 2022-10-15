@@ -4,35 +4,45 @@ const button = document.getElementById('criar-tarefa');
 const li = document.getElementsByClassName('lista');
 const clean = document.getElementById('apaga-tudo');
 const removeCompletos = document.getElementById('remover-finalizados');
+const salvaLista = document.getElementById('salvar-tarefas');
 
 window.onload = () => {
-    atualizarTela();
+  atualizarBanco();
+  atualizarCompleto();
 }
 
 let banco = [];
 const getBanco = () => JSON.parse(localStorage.getItem('todolist')) ?? [];
 const setBanco = (banco) => localStorage.setItem('todolist', JSON.stringify(banco));
 
+let completo = [];
+const setCompleto = (completo) => localStorage.setItem('completed', JSON.stringify(completo));
+const getCompleto = () => JSON.parse(localStorage.getItem('completed')) ?? [];
+
 const createLI = () => {
-    const li = document.createElement('li');
-    li.innerText = input.value;
-    li.className = 'lista';
-    banco.push(li.innerText);
-    ol.appendChild(li); 
-    input.value = "";
-    setBanco(banco);
+  const li = document.createElement('li');
+  li.innerText = input.value;
+  li.className = 'lista';
+  banco.push(li.innerText);
+  ol.appendChild(li); 
+  input.value = "";
+  setBanco(banco);
 }
 button.addEventListener('click', createLI);
 
-const atualizarTela = () => {
-    const get = getBanco();
-    get.map((item) => {
-        const li = document.createElement('li');
-        li.innerText = item;
-        li.className = 'lista';
-        banco.push(li.innerText);
-        ol.appendChild(li);
-    })
+const atualizarBanco = () => {  
+  const get = getBanco();
+  get.map((item) => {
+    const li = document.createElement('li');
+    li.innerText = item;
+    li.className = 'lista';
+    banco.push(li.innerText);
+    ol.appendChild(li);
+  })
+}
+
+const atualizarCompleto = () => {
+  
 }
 
 const changeBack = (event) => {
@@ -50,16 +60,26 @@ ol.addEventListener('dblclick', complete);
 
 const cleanLi = () => {
     document.querySelectorAll('li').forEach((e) => ol.removeChild(e))
-    localStorage.removeItem('todolist')
+    localStorage.removeItem('todolist');
 }
 clean.addEventListener('click', cleanLi);
 
-const removerCompletos = (event) => {
+const removerCompletos = () => {
     document.querySelectorAll('li').forEach((e) => {
     if (e.className === 'completed') {
         ol.removeChild(e);
         banco.splice(banco.indexOf(e), 1);
-        setBanco(banco);
+        setBanco(banco);  
     }})
 }
-removeCompletos.addEventListener('click', removerCompletos);
+  removeCompletos.addEventListener('click', removerCompletos);
+
+const saveList = () => {
+    document.querySelectorAll('li').forEach((e) => {
+        if (e.className === 'completed') {
+            completo.push(e.innerText);
+            setCompleto(completo);
+        }})
+
+}
+salvaLista.addEventListener('click', saveList);
