@@ -31,5 +31,15 @@ const background = ({ target }) => {
   }
 };
 
+const completedClass = ({ target }) => {
+  const tarefaLi = target;
+  if (target.className === 'semCompleted') {
+    tarefaLi.className = 'completed';
+  } else {
+    tarefaLi.className = 'semCompleted';
+  }
+};
+
 button.addEventListener('click', novaTarefa);
 ol.addEventListener('click', background);
+ol.addEventListener('dblclick', completedClass);
