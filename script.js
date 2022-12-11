@@ -40,6 +40,11 @@ const completedClass = ({ target }) => {
   }
 };
 
+const apagarTudo = () => {
+  ol.innerHTML = '';
+};
+
 button.addEventListener('click', novaTarefa);
 ol.addEventListener('click', background);
 ol.addEventListener('dblclick', completedClass);
+buttonApagar.addEventListener('click', apagarTudo);
