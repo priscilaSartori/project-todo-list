@@ -51,8 +51,24 @@ const removerCompletos = () => {
   }
 };
 
+const salvarTarefas = () => {
+  const innerText = [];
+  const className = [];
+  const id = [];
+  const lista = document.querySelectorAll('li');
+  for (let index = 0; index < lista.length; index += 1) {
+    innerText.push(lista[index].innerText);
+    className.push(lista[index].className);
+    id.push(lista[index].id);
+  }
+  localStorage.setItem('innerText', JSON.stringify(innerText));
+  localStorage.setItem('className', JSON.stringify(className));
+  localStorage.setItem('id', JSON.stringify(id));
+};
+
 button.addEventListener('click', novaTarefa);
 ol.addEventListener('click', background);
 ol.addEventListener('dblclick', completedClass);
 buttonApagar.addEventListener('click', apagarTudo);
 buttonRemoverFinalizados.addEventListener('click', removerCompletos);
+buttonSalvarTarefas.addEventListener('click', salvarTarefas);
