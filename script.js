@@ -66,9 +66,62 @@ const salvarTarefas = () => {
   localStorage.setItem('id', JSON.stringify(id));
 };
 
+const getLocalStorageInnerText = () => {
+  const getInnerText = localStorage.getItem('innerText').split('"');
+  const newInnerText = [];
+  for (let index = 0; index < getInnerText.length; index += 1) {
+    if (getInnerText[index] !== '[' && getInnerText[index] !== ']' && getInnerText[index] !== ',') {
+      newInnerText.push(getInnerText[index]);
+    }
+  }
+  return newInnerText;
+};
+
+const getLocalStorageClassname = () => {
+  const getClassName = JSON.parse(localStorage.getItem('className'));
+  const newClassName = [];
+  for (let index = 0; index < getClassName.length; index += 1) {
+    if (getClassName[index] !== '[' && getClassName[index] !== ']' && getClassName[index] !== ',') {
+      newClassName.push(getClassName[index]);
+    }
+  }
+  return newClassName;
+};
+
+const getLocalStorageId = () => {
+  const getId = JSON.parse(localStorage.getItem('id'));
+  const newId = [];
+  for (let index = 0; index < getId.length; index += 1) {
+    if (getId[index] !== '[' && getId[index] !== ']' && getId[index] !== ',') {
+      newId.push(getId[index]);
+    }
+  }
+  return newId;
+};
+
+const getLocalStorage = () => {
+  const getInnerText = getLocalStorageInnerText();
+  const getClassName = getLocalStorageClassname();
+  const getId = getLocalStorageId();
+
+  for (let index = 0; index < getInnerText.length; index += 1) {
+    const newLi = document.createElement('li');
+    newLi.innerText = getInnerText[index];
+    newLi.className = getClassName[index];
+    newLi.id = getId[index];
+    ol.appendChild(newLi);
+  }
+};
+
 button.addEventListener('click', novaTarefa);
 ol.addEventListener('click', background);
 ol.addEventListener('dblclick', completedClass);
 buttonApagar.addEventListener('click', apagarTudo);
 buttonRemoverFinalizados.addEventListener('click', removerCompletos);
 buttonSalvarTarefas.addEventListener('click', salvarTarefas);
+
+window.onload = () => {
+  if (localStorage.getItem('innerText') !== null) {
+    getLocalStorage();
+  }
+};
