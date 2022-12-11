@@ -113,12 +113,34 @@ const getLocalStorage = () => {
   }
 };
 
+const movimentarParaCima = () => {
+  const selecBackground = document.getElementById('background');
+  if (selecBackground !== null && selecBackground !== ol.firstChild) {
+    ol.insertBefore(selecBackground, selecBackground.previousSibling);
+  }
+};
+
+const movimentarParaBaixo = () => {
+  const selecBackground = document.getElementById('background');
+  if (selecBackground !== null && selecBackground !== ol.lastChild) {
+    ol.insertBefore(selecBackground.nextSibling, selecBackground);
+  }
+};
+
+const removerSelecionado = () => {
+  const selecBackground = document.getElementById('background');
+  ol.removeChild(selecBackground);
+};
+
 button.addEventListener('click', novaTarefa);
 ol.addEventListener('click', background);
 ol.addEventListener('dblclick', completedClass);
 buttonApagar.addEventListener('click', apagarTudo);
 buttonRemoverFinalizados.addEventListener('click', removerCompletos);
 buttonSalvarTarefas.addEventListener('click', salvarTarefas);
+moverParaCima.addEventListener('click', movimentarParaCima);
+moverParaBaixo.addEventListener('click', movimentarParaBaixo);
+buttonRemoverSelecionado.addEventListener('click', removerSelecionado);
 
 window.onload = () => {
   if (localStorage.getItem('innerText') !== null) {
