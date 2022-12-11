@@ -44,7 +44,15 @@ const apagarTudo = () => {
   ol.innerHTML = '';
 };
 
+const removerCompletos = () => {
+  const completed = document.querySelectorAll('.completed');
+  for (let index = 0; index < completed.length; index += 1) {
+    ol.removeChild(completed[index]);
+  }
+};
+
 button.addEventListener('click', novaTarefa);
 ol.addEventListener('click', background);
 ol.addEventListener('dblclick', completedClass);
 buttonApagar.addEventListener('click', apagarTudo);
+buttonRemoverFinalizados.addEventListener('click', removerCompletos);
