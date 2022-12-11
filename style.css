@@ -1,3 +1,7 @@
-.completed {
-    text-decoration: line-through solid black;
+#background {
+  background-color: gray;
+}
+
+#semBackground {
+  background-color: white;
 }

@@ -19,4 +19,17 @@ const novaTarefa = () => {
   input.value = '';
 };
 
+const background = ({ target }) => {
+  const tarefaLi = target;
+  if (target.id === 'semBackground') {
+    for (let index = 0; index < li.length; index += 1) {
+      li[index].id = 'semBackground';
+    }
+    tarefaLi.id = 'background';
+  } else {
+    tarefaLi.id = 'semBackground';
+  }
+};
+
 button.addEventListener('click', novaTarefa);
+ol.addEventListener('click', background);
