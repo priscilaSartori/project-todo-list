@@ -40,9 +40,9 @@ Habilidades desenvolvidas
 
 ## Acesso ao Projeto
 
-- Clone este repositório: `git clone git@github.com:priscilaSartori/project-pixels-art.git`
+- Clone este repositório: `git clone git@github.com:priscilaSartori/project-todo-list.git`
 
-- Acesse a pasta do projeto no terminal/cmd: `cd project-pixels-art`
+- Acesse a pasta do projeto no terminal/cmd: `cd project-todo-list`
 
 - Instale as dependências: `npm install`
 
