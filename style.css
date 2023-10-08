@@ -1,13 +1,6 @@
-#background {
-  background-color: gray;
-}
-
-#semBackground {
-  background-color: white;
-}
-
-.completed {
-  text-decoration: line-through solid black;
+body {
+  display: flex;
+  flex-direction: column;
 }
 
 header {
@@ -18,14 +11,47 @@ header {
   background-color: orange;
 }
 
+.quadro-lista-tarefas {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 1335px;
+}
+
+.quadro-tarefas {
+  width: 930px;
+  height: 450px;
+}
+
+.quadro-tarefas-digitar {
+  text-align: center;
+  height: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: DarkOrange	;
+}
+
+#texto-tarefa {
+  align-items: center;
+  width: 800px;
+  height: 30px;
+}
+
 .quadro {
-  background-color: #363636;
+  background-color: LightSeaGreen;
   border-radius: 5px solid;
-  padding: 5px;
   color: white;
   align-items: center;
   display: flex;
+  height: 50px;
   justify-content: space-around;
+}
+
+.quadro-listas {
+  background-color: Khaki;
+  min-height: 350px;
+  max-height: 350px;
 }
 
 #funcionamento {
@@ -33,26 +59,46 @@ header {
   margin: 0;
 }
 
-#texto-tarefa {
-  align-items: center;
-  width: 1000px;
-  height: 30px;
-}
-
 #lista-tarefas {
-  background-color: white;
+  width: 860px;
 }
 
-/* .button {
-  padding: 5px;
-  background-color: #4f4f4f;
+.quadro-tarefas-salvas {
+  height: 480px;
+  width: 400px;
   display: flex;
-  justify-content: space-around;
-  width: 40%;
-} */
+  flex-direction: column;
+}
+
+.nav-tarefas-salvas {
+  background-color: #363636;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  height: 50px;
+}
+
+.quadro-tarefas-listas {
+  background-color: PaleGreen;
+  min-height: 350px;
+  max-height: 350px;
+}
+
+#background {
+  background-color: Chocolate;
+}
+
+#semBackground {
+  background-color: Khaki;
+}
+
+.completed {
+  text-decoration: line-through solid black;
+}
 
 button {
   background-color: goldenrod;
   height: 30px;
 }
-

@@ -9,25 +9,44 @@
 </head>
 <body>
   <header>Minha Lista de Tarefas</header>
-    <div class="quadro">
-      <input type="text" id="texto-tarefa" value="">
-      <button id="criar-tarefa">Salvar</button>
-      <button type="button" id="mover-cima"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
-        <path d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/>
-      </svg></button>
-      <button type="button" id="mover-baixo"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-circle-fill" viewBox="0 0 16 16">
-        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"/>
-      </svg></button>
-      <button type="button" id="remover-selecionado"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
-        <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
-      </svg></button>
-      <button type="button" id="apaga-tudo">Apagar Itens</button>
-      <button type="button" id="remover-finalizados">Remover Finalizados</button>
-      <button type="button" id="salvar-tarefas">Salvar Tarefas</button>
-    </div>
+  <div class="quadro-lista-tarefas">
+    <section class="quadro-tarefas">
+      <div class="quadro-tarefas-digitar">
+        <input type="text" id="texto-tarefa" value="" placeholder="Digite aqui a tarefa">
+        <button id="criar-tarefa">Salvar</button>
+      </div>
+      <div class="quadro">
+        <button type="button" id="mover-cima"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
+          <path d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/>
+        </svg></button>
+        <button type="button" id="mover-baixo"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-circle-fill" viewBox="0 0 16 16">
+          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"/>
+        </svg></button>
+        <button type="button" id="remover-selecionado"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+          <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+        </svg></button>
+        <button type="button" id="apaga-tudo">Apagar Itens</button>
+        <button type="button" id="remover-finalizados">Remover Finalizados</button>
+        <button type="button" id="salvar-tarefas">Salvar Tarefas</button>
+      </div>
+      <div class="quadro-listas">
+        <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+        <ol id="lista-tarefas"></ol>
+      </div>
+    </section>
+    <section class="quadro-tarefas-salvas">
+      <div class="nav-tarefas-salvas">
+        <p>Lista Salva</p>
+      </div>
+      <div class="quadro">
+        <button type="button" id="apagar-tarefa">Apagar Tarefas</button>
+        <!-- <button type="button" id="apagar-todas-tarefas">Apagar Todas as Tarefas</button> -->
+      </div>
+      <div class="quadro-tarefas-listas">
+        <ol id="lista-salva"></ol>
+      </div>
+    </section>
   </div>
-  <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-  <ol id="lista-tarefas"></ol>
   <script src="/script.js"></script>
 </body>
 </html>

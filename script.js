@@ -8,6 +8,9 @@ const buttonSalvarTarefas = document.querySelector('#salvar-tarefas');
 const moverParaCima = document.getElementById('mover-cima');
 const moverParaBaixo = document.getElementById('mover-baixo');
 const buttonRemoverSelecionado = document.getElementById('remover-selecionado');
+const listaSalva = document.getElementById('lista-salva');
+const apagarTarefa = document.getElementById('apagar-tarefa');
+const quadroTarefaLista = document.getElementsByClassName('.quadro-tarefas-listas');
 
 const novaTarefa = () => {
   const newLi = document.createElement('li');
@@ -60,7 +63,12 @@ const salvarTarefas = () => {
     innerText.push(lista[index].innerText);
     className.push(lista[index].className);
     id.push(lista[index].id);
+    const newLi = document.createElement('li');
+    newLi.className = 'localStorage';
+    newLi.innerText = lista[index].innerText;
+    listaSalva.appendChild(newLi);
   }
+  localStorage.setItem('listaSalva', JSON.stringify(listaSalva));
   localStorage.setItem('innerText', JSON.stringify(innerText));
   localStorage.setItem('className', JSON.stringify(className));
   localStorage.setItem('id', JSON.stringify(id));
@@ -132,6 +140,17 @@ const removerSelecionado = () => {
   ol.removeChild(selecBackground);
 };
 
+const apagarLocal = () => {
+  localStorage.clear();
+  listaSalva.innerHTML = '';
+  localStorage.setItem('innerText').remove();
+  localStorage.setItem('className').remove();
+  localStorage.setItem('id').remove();
+  const olSalvo = document.createElement('ol');
+  olSalvo.id = 'lista-salva';
+  quadroTarefaLista.appendChild(olSalvo);
+};
+
 button.addEventListener('click', novaTarefa);
 ol.addEventListener('click', background);
 ol.addEventListener('dblclick', completedClass);
@@ -141,6 +160,7 @@ buttonSalvarTarefas.addEventListener('click', salvarTarefas);
 moverParaCima.addEventListener('click', movimentarParaCima);
 moverParaBaixo.addEventListener('click', movimentarParaBaixo);
 buttonRemoverSelecionado.addEventListener('click', removerSelecionado);
+apagarTarefa.addEventListener('click', apagarLocal);
 
 window.onload = () => {
   if (localStorage.getItem('innerText') !== null) {
