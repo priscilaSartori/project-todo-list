@@ -46,6 +46,8 @@ Habilidades desenvolvidas
 
 - Instale as dependências: `npm install`
 
+- Para acessar a aplicação, utilize o "Go Live" e o localhost (atribuído a um número de porta) deverá iniciar em seu navegador padrão.
+
 - Execute os testes:
 
   Para executar os testes apenas no terminal: `npm test`
